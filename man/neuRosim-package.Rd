@@ -10,8 +10,8 @@
 \tabular{ll}{
 Package: \tab neuRosim\cr
 Type: \tab Package\cr
-Version: \tab 0.1-1\cr
-Date: \tab 2010-10-26\cr
+Version: \tab 0.2-7\cr
+Date: \tab 2011-04-20\cr
 License: \tab GPL (>=2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -24,15 +24,14 @@ Maintainer: Marijke Welvaert <Marijke.Welvaert@Ugent.be>
 \keyword{ package }
 \examples{
 ## Generate fMRI time series for block design
-rm(list=ls())
-design <- simprep.act.temp(T=200, ncond=1, onsets=seq(1,200,40), durations=20, TR=2, acc=0.1, hrf="double-gamma")
-ts <- sim.fmri.ts(design=design, SNR=1, noise="white")
-#plot(ts, type="l")
-
+design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), durations=20, TR=2, effectsize=1, hrf="double-gamma")
+ts <- simTSfmri(design=design, SNR=1, noise="white")
+\dontrun{plot(ts, type="l")}
+\dontshow{rm(design,ts)}
 ## Generate fMRI slice for block design with activation in 2 regions
-rm(list=ls())
-design <- simprep.act.temp(T=200, ncond=1, onsets=seq(1,200,40), durations=20, TR=2, acc=0.1, hrf="double-gamma")
-region <- simprep.act.spat(nregio=2, coord=matrix(c(32,15,57,45), ncol=2, byrow=TRUE), ext=c(10,7), form="sphere", fading=TRUE)
-out <- sim.fmri.data(design=design, image=region, dim=c(64,64), SNR=1, noise="none")
-#plot(out[32,15,], type="l")
+design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), durations=20, TR=2, effectsize=1, hrf="double-gamma")
+region <- simprepSpatial(regions=2, coord=list(c(32,15),c(57,45)), radius=c(10,7), form="sphere")
+out <- simVOLfmri(design=design, image=region, dim=c(64,64), SNR=1, noise="none")
+\dontrun{plot(out[32,15,], type="l")}
+\dontshow{rm(design,region,out)}
 }
