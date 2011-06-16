@@ -1,7 +1,7 @@
 balloon <-
 function(stim, totaltime, acc, par=list(),verbose=TRUE){
 
-	require(deSolve, quiet=TRUE)
+	require(deSolve, quietly=TRUE)
 	
 	if(missing(par)){
 	  if(verbose==TRUE){

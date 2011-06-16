@@ -10,8 +10,8 @@
 \tabular{ll}{
 Package: \tab neuRosim\cr
 Type: \tab Package\cr
-Version: \tab 0.2-7\cr
-Date: \tab 2011-04-20\cr
+Version: \tab 0.2-8\cr
+Date: \tab 2011-06-16\cr
 License: \tab GPL (>=2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -21,6 +21,9 @@ LazyLoad: \tab yes\cr
 
 Maintainer: Marijke Welvaert <Marijke.Welvaert@Ugent.be>
 }
+
+\references{Welvaert, M., Durnez, J., Moerkerke, B., Verdoolaege, G. and Rosseel, Y. (2011). \pkg{neuRosim}: An {R} Package for Generating fMRI Data. Journal of Statistical Software, 44(10), 1--18}
+
 \keyword{ package }
 \examples{
 ## Generate fMRI time series for block design

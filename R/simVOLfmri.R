@@ -53,7 +53,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     }
   }
   if(!is.vector(base)){
-    if(dim(base)!=dim){
+    if(!all(dim(base)!=dim)){
       stop("base should be a single number or an array with dimensions corresponding to dim")
     } else {
       base <- array(rep(base,times=nscan),dim=c(dim,nscan))
@@ -73,7 +73,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     nscan <- design[[1]]$totaltime/design[[1]]$TR
     TR <- design[[1]]$TR
     act.image <- array(0, dim=c(dim,nscan))
-    act <- rowSums(specifydesign(design[[1]]$onsets, design[[1]]$durations, design[[1]]$totaltime, design[[1]]$TR, design[[1]]$effectsize, design[[1]]$acc, design[[1]]$hrf, par=design[[1]]$par))
+    act <- rowSums(specifydesign(design[[1]]$onsets, design[[1]]$durations, design[[1]]$totaltime, design[[1]]$TR, design[[1]]$effectsize, design[[1]]$acc, design[[1]]$hrf, param=design[[1]]$par))
     for(i in 1:nregio){
       im <- specifyregion(dim, image[[i]]$coord, image[[i]]$radius, image[[i]]$form, image[[i]]$fading)
       act.image <- act.image + im %o% act
@@ -88,7 +88,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     act.image <- array(0, dim=c(dim,nscan))
     for(i in 1:nregio){
       im <- specifyregion(dim, image[[i]]$coord, image[[i]]$radius, image[[i]]$form, image[[i]]$fading)
-      act <- rowSums(specifydesign(design[[i]]$onsets, design[[i]]$durations, design[[i]]$totaltime, design[[i]]$TR, design[[i]]$effectsize, design[[i]]$acc, design[[i]]$hrf, par=design[[i]]$par))
+      act <- rowSums(specifydesign(design[[i]]$onsets, design[[i]]$durations, design[[i]]$totaltime, design[[i]]$TR, design[[i]]$effectsize, design[[i]]$acc, design[[i]]$hrf, param=design[[i]]$par))
       act.image <- act.image + im %o% act
     }
     act.image <- base + act.image
@@ -109,7 +109,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     n <- lowfreqdrift(dim=dim, freq=freq.low, nscan=nscan, TR=TR, verbose=verbose, template=template)
   }
   if(noise=="physiological"){
-    n <- physnoise(dim=dim, sigma=sigma, nscan=nscan, TR=TR, freq.hear=freq.heart, freq.resp=freq.resp, verbose=verbose, template=template)
+    n <- physnoise(dim=dim, sigma=sigma, nscan=nscan, TR=TR, freq.heart=freq.heart, freq.resp=freq.resp, verbose=verbose, template=template)
   }
   if(noise=="task-related"){
     n <- tasknoise(act.image=act, sigma=sigma, type=type, vee=vee)
@@ -152,7 +152,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     n <- (w[1]* n.white + w[2]*n.temp + w[3]*n.low + w[4]*n.phys + w[5]*n.task + w[6]*n.spat)/sqrt(sum(w^2))
   }
   
-  fmri.data <- act.image + n
+  fmri.data <- act.image + n - mean(n)
         if(!missing(template)){
                 template.time <- array(rep(template,nscan), dim=c(dim,nscan))
                 ix <- which(template.time!=0)

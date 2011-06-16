@@ -83,7 +83,7 @@ function(dim, sigma, nscan, method=c("corr", "gammaRF", "gaussRF"), type=c("gaus
 			if(length(dim(template))>3){
 				stop("Template should be a 2D or 3D array.")
 			}
- 			m <- array(ifelse(template!=0), dim=dim.RF)
+ 			m <- array(ifelse(template!=0, 1, 0), dim=dim.RF)
 		} else {
 			m <- array(1, dim=dim.RF)
 		}
@@ -112,7 +112,7 @@ function(dim, sigma, nscan, method=c("corr", "gammaRF", "gaussRF"), type=c("gaus
 			if(length(dim(template))>3){
 				stop("Template should be a 2D or 3D array.")
 			}
-                        m <- array(ifelse(template!=0), dim=dim.RF)
+                        m <- array(ifelse(template!=0, 1, 0), dim=dim.RF)
                 } else {
                         m <- array(1, dim=dim.RF)
                 }

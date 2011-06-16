@@ -85,7 +85,7 @@ function(design=list(), base=0, nscan=NULL, TR=NULL, SNR=NULL, noise=c("none", "
 		n <- (w[1]* n.white + w[2]*n.temp + w[3]*n.low + w[4]*n.phys + w[5]*n.task)/sqrt(sum(w^2))
 	}
 
-	fmri.ts <- act + n
+	fmri.ts <- act + n - mean(n)
 	return(fmri.ts)
 }
 
