@@ -2,8 +2,8 @@ Package: neuRosim
 Type: Package
 Title: Functions to generate fMRI data including activated data, noise
         data and resting state data.
-Version: 0.2-8
-Date: 2011-06-16
+Version: 0.2-10
+Date: 2012-01-18
 Author: Marijke Welvaert with contributions from Joke Durnez, Beatrijs
         Moerkerke, Yves Rosseel and Geert Verdoolaege
 Maintainer: Marijke Welvaert <Marijke.Welvaert@Ugent.be>
@@ -17,5 +17,5 @@ Description: The package allows users to generate fMRI time series or
 License: GPL (>= 2)
 LazyLoad: yes
 Repository: CRAN
-Date/Publication: 2011-10-24 13:40:42
-Packaged: 2011-10-24 09:48:56 UTC; marijke
+Date/Publication: 2012-02-02 16:16:07
+Packaged: 2012-02-02 15:05:56 UTC; marijke

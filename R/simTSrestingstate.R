@@ -81,6 +81,6 @@ x <- base + x[1:N]                        # Retain only the first N samples (sli
 		w <- weights
 		n <- (w[1]* n.white + w[2]*n.temp + w[3]*n.low + w[4]*n.phys)/sqrt(sum(w^2))
 	}
-	ts <- x + n
+	ts <- x + n - mean(n)
 	return(ts)
 }

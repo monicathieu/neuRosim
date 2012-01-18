@@ -1,4 +1,4 @@
-97d65093324d1acf176f1aaf6d1ffbf2 *DESCRIPTION
+a8e5aadd68667aefd82d5dc6ee7a9793 *DESCRIPTION
 02df8a30b88a975038d4412cf70976db *NAMESPACE
 9c4c1de77a0e3094c444d818c1854176 *R/balloon.R
 95e3b9d3ed2445bb049f3fe228b05287 *R/canonicalHRF.R
@@ -8,12 +8,12 @@ d2f65563e17a658206b9507181907eed *R/lowfreqdrift.R
 d30e96b8016604142fe762140cefb9df *R/physnoise.R
 9a02cf3caa6e720afa0bcb478aa2124c *R/rrice.R
 d481cf839125ac9d7530bc6433ede86d *R/simTSfmri.R
-b172e62c4181c2f4a61a1cd119c7dd45 *R/simTSrestingstate.R
-c53bad9c88b5d585c41ba7b8a4b9a2b1 *R/simVOLfmri.R
+02ddbd1595a487070b61ec70433576bc *R/simTSrestingstate.R
+0ae48a56460f1e4191bfde12d6c6e16b *R/simVOLfmri.R
 2d9a3c7d84f67e6050d8c555cc5c59e1 *R/simprepSpatial.R
 c6ab1f571e1f34f5d32b4abecf7f2030 *R/simprepTemporal.R
 62ba90de9f4f64aa1fd5a4330e04cb3d *R/spatialnoise.R
-d324ea3cf251e185453ff1b706bae920 *R/specifydesign.R
+067f3fbe4332200c12c9c6e524997ce9 *R/specifydesign.R
 87d31bd50bc9da6cecd9d0fb97f40654 *R/specifyregion.R
 374886b277a322906b47e8db0c6660ec *R/stimfunction.R
 3339d6a37dbcfb70a561e98e1e7244d2 *R/systemnoise.R
@@ -27,7 +27,7 @@ fd779271698236acdb7c3c7aff185919 *man/Sim.3D.GRF.Rd
 f08b606084bb4a1a6f6ff274a9e93bbe *man/canonicalHRF.Rd
 27b051fa2c95fd3bf470327b9868c1ea *man/gammaHRF.Rd
 d0dd592bd90a5859fdc9f446eede8add *man/lowfreqdrift.Rd
-23c8b1f16717c84acfb2d3ae9f6f962c *man/neuRosim-package.Rd
+fa587b384b7cbb4bdb324c2af408e052 *man/neuRosim-package.Rd
 f32bb93d4f811c0f8e3b8a876fff4fdb *man/physnoise.Rd
 a92237b06d4bfc1f4a59a84ed4b0a2de *man/rrice.Rd
 1357651ced6a1bbec97d2f8932989eda *man/simTSfmri.Rd

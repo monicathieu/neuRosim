@@ -69,6 +69,7 @@ function(onsets, durations, totaltime, TR, effectsize, accuracy=0.1, conv=c("non
 		if(conv=="double-gamma"){
                         s <- stimfunction(totaltime, onsets[[i]], durations[[i]], accuracy)
                         s.conv <- convolve(canonicalHRF(seq(accuracy,totaltime,accuracy), param[[i]], verbose=FALSE), rev(s))
+			s.conv <- s.conv/max(s.conv)
                         design.matrix[,i] <- effectsize[[i]]*s.conv[ix]
  		}
 		if(conv=="Balloon"){

@@ -34,7 +34,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     noise <- "white"
   }
   if(missing(type)){
-      temp <- "gaussian"
+      type <- "gaussian"
     }
  if((noise=="spatial") || (noise=="mixture")){
     if(missing(spat)){
@@ -53,7 +53,7 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     }
   }
   if(!is.vector(base)){
-    if(!all(dim(base)!=dim)){
+    if(!all(dim(base)==dim)){
       stop("base should be a single number or an array with dimensions corresponding to dim")
     } else {
       base <- array(rep(base,times=nscan),dim=c(dim,nscan))
@@ -80,7 +80,11 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     }
     act.image <- base + act.image
     ix <- which(act.image==0)
-    sigma <- mean(act.image[-ix])/SNR
+    if(length(ix)!=0){
+    	sigma <- mean(act.image[-ix])/SNR
+    }else{
+	sigma <- mean(act.image)/SNR
+    }
  } else {
     nregio <- length(image)
     nscan <- design[[1]]$totaltime/design[[1]]$TR
@@ -93,7 +97,11 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
     }
     act.image <- base + act.image
     ix <- which(act.image==0)
-    sigma <- mean(act.image[-ix])/SNR
+    if(length(ix)!=0 ){
+    	sigma <- mean(act.image[-ix])/SNR
+    }else{
+	sigma <- mean(act.image)/SNR
+    }
   }
 
   if(noise=="none"){
