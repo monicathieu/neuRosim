@@ -7,7 +7,8 @@
 \description{Generates a physiological noise dataset with specified dimensions and standard deviation. The physiological noise is defined as noise caused by heart beat and respiratory rate.}
 
 \usage{
-physnoise(dim, nscan, TR, sigma, freq.heart = 1.17, freq.resp = 0.2, template, verbose = TRUE)
+physnoise(dim, nscan, TR, sigma, freq.heart = 1.17, 
+	freq.resp = 0.2, template, verbose = TRUE)
 }
 
 \arguments{

@@ -9,7 +9,10 @@ a square passband 0.01 Hz <= f <= 0.1 Hz. TR is the repetition time (needed to c
 N is the required number of samples (needs not be a power of 2).}
 
 \usage{
-simTSrestingstate(nscan, base=0, TR, SNR=NULL, noise = c("none", "white", "temporal", "low-frequency", "physiological", "mixture"), type = c("gaussian", "rician"), weights, verbose = TRUE, rho = 0.2, freq.low = 128, freq.heart = 1.17, freq.resp = 0.2, vee=1)
+simTSrestingstate(nscan, base=0, TR, SNR=NULL, noise = c("none", "white",
+	"temporal", "low-frequency", "physiological", "mixture"), 
+	type = c("gaussian", "rician"), weights, verbose = TRUE, rho = 0.2,
+	freq.low = 128, freq.heart = 1.17, freq.resp = 0.2, vee=1)
 }
 
 \arguments{

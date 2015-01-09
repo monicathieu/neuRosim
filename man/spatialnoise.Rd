@@ -7,7 +7,9 @@
 \description{Generates a spatially correlated noise dataset with specified dimensions and standard deviation.}
 
 \usage{
-spatialnoise(dim, sigma, nscan, method = c("corr", "gammaRF", "gaussRF"), type=c("gaussian","rician"), rho = 0.75, FWHM = 4, gamma.shape = 6, gamma.rate = 1, vee=1, template, verbose = TRUE)
+spatialnoise(dim, sigma, nscan, method = c("corr", "gammaRF", "gaussRF"), 
+	type=c("gaussian","rician"), rho = 0.75, FWHM = 4, gamma.shape = 6, 
+	gamma.rate = 1, vee=1, template, verbose = TRUE)
 }
 
 \arguments{

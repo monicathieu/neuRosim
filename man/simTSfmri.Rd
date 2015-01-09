@@ -7,7 +7,11 @@
 \description{Simulates an fMRI time series for the specified design and noise type.}
 
 \usage{
-simTSfmri(design = list(), base=0, nscan = NULL, TR = NULL, SNR=NULL, noise = c("none", "white", "temporal", "low-frequency", "physiological", "task-related", "mixture"), type = c("gaussian", "rician"), weights, verbose = TRUE, rho = 0.2, freq.low = 128, freq.heart = 1.17, freq.resp = 0.2, vee=1)
+simTSfmri(design = list(), base=0, nscan = NULL, TR = NULL, SNR=NULL,
+	 noise = c("none", "white", "temporal", "low-frequency", 
+	"physiological", "task-related", "mixture"), type = c("gaussian", "rician"),
+	 weights, verbose = TRUE, rho = 0.2, freq.low = 128, freq.heart = 1.17, 
+	freq.resp = 0.2, vee=1)
 }
 
 \arguments{
@@ -34,7 +38,8 @@ simTSfmri(design = list(), base=0, nscan = NULL, TR = NULL, SNR=NULL, noise = c(
 \seealso{\code{\link{simVOLfmri}}, \code{\link{simprepTemporal}}}
 
 \examples{
-design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), durations=20, effectsize=1, TR=2, hrf="double-gamma")
+design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), 
+	durations=20, effectsize=1, TR=2, hrf="double-gamma")
 ts <- simTSfmri(design=design, SNR=1, noise="white")
 \dontrun{plot(ts, type="l")}
 \dontshow{rm(design,ts)}

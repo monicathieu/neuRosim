@@ -6,7 +6,8 @@
 \description{Generates a system noise dataset with specified dimensions and standard deviation. The noise can be either Gaussian or Rician distributed.}
 
 \usage{
-systemnoise(dim, nscan, type=c("gaussian","rician"), sigma, vee, template, verbose = TRUE)
+systemnoise(dim, nscan, type=c("gaussian","rician"), sigma, vee, template, 
+		verbose = TRUE)
 }
 
 \arguments{

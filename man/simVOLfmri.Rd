@@ -7,7 +7,14 @@
 \description{Simulates a 3D or 4D fMRI dataset for the specified design and with activation in the specified regions.}
 
 \usage{
-simVOLfmri(design = list(), image = list(), base=0, dim, nscan = NULL, TR = NULL, SNR=NULL, noise = c("none", "white", "temporal", "spatial", "low-frequency", "physiological", "task-related", "mixture"), type = c("gaussian", "rician"), spat = c("corr", "gaussRF", "gammaRF"), weights, verbose = TRUE, rho.temp = 0.2, rho.spat = 0.75, freq.low = 128, freq.heart = 1.17, freq.resp = 0.2, FWHM = 4, gamma.shape = 6, gamma.rate = 1, vee=1, template)
+simVOLfmri(design = list(), image = list(), base=0, dim, nscan = NULL,
+	TR = NULL, SNR=NULL, noise = c("none", "white", "temporal", 
+	"spatial", "low-frequency", "physiological", "task-related", 
+	"mixture"), type = c("gaussian", "rician"), 
+	spat = c("corr", "gaussRF", "gammaRF"), weights, verbose = TRUE, 
+	rho.temp = 0.2, rho.spat = 0.75, freq.low = 128, 
+	freq.heart = 1.17, freq.resp = 0.2, FWHM = 4, gamma.shape = 6, 
+	gamma.rate = 1, vee=1, template)
 }
 
 \arguments{
@@ -42,13 +49,17 @@ simVOLfmri(design = list(), image = list(), base=0, dim, nscan = NULL, TR = NULL
 \seealso{\code{\link{simTSfmri}}, \code{\link{simprepTemporal}}, \code{\link{simprepSpatial}}}
 
 \examples{
-design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), durations=20, TR=2, effectsize=1, hrf="double-gamma")
-region <- simprepSpatial(regions=2, coord=list(c(32,15),c(57,45)), radius=c(10,7), form="sphere", fading=TRUE)
-out <- simVOLfmri(design=design, image=region, dim=c(64,64), SNR=1, noise="none")
+design <- simprepTemporal(totaltime=200, onsets=seq(1,200,40), 
+	durations=20, TR=2, effectsize=1, hrf="double-gamma")
+region <- simprepSpatial(regions=2, coord=list(c(32,15),c(57,45)), 
+	radius=c(10,7), form="sphere", fading=TRUE)
+out <- simVOLfmri(design=design, image=region, dim=c(64,64), 
+	SNR=1, noise="none")
 \dontrun{plot(out[32,15,], type="l")}
 \dontrun{library(lattice)
 library(gplots)
-levelplot(out[,,10],scales=list(tck=0), col.regions=colorpanel(50,high="white",low="black"))}
+levelplot(out[,,10],scales=list(tck=0), 
+	col.regions=colorpanel(50,high="white",low="black"))}
 \dontshow{rm(design,region,out)}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

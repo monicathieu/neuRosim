@@ -52,7 +52,8 @@ The microtime resolution ensures a high-precision generation of the response. Mo
 s <- rep(rep(0,10), rep(1,10), 5)
 T <- 100
 it <- 0.1
-out <- balloon(s, T, it) #takes a couple of seconds due to solving of the differential equations
+out <- balloon(s, T, it) 
+#takes a couple of seconds due to solving of the differential equations
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

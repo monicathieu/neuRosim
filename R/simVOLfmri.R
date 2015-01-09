@@ -67,7 +67,11 @@ function(design=list(), image=list(), base=0, dim, nscan=NULL, TR=NULL, SNR=NULL
   if((length(design)==0) && (length(image)==0)){
     act.image <- base + array(0, dim=c(dim,nscan))
     ix <- which(act.image==0)
-    sigma <- mean(act.image[-ix])/SNR
+    if(length(ix) != 0){
+    	sigma <- mean(act.image[-ix])/SNR
+    } else {
+	sigma <- mean(act.image)/SNR
+    }
   } else if(length(design)==1){
     nregio <- length(image)
     nscan <- design[[1]]$totaltime/design[[1]]$TR

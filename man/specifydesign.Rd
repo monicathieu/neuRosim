@@ -7,7 +7,9 @@
 \description{Generates a design matrix to be used as a model for the simulated activation.}
 
 \usage{
-specifydesign(onsets, durations, totaltime, TR, effectsize, accuracy=0.1, conv = c("none", "gamma", "double-gamma", "Balloon"), cond.names = NULL, param = NULL)
+specifydesign(onsets, durations, totaltime, TR, effectsize, accuracy=0.1, 
+	conv = c("none", "gamma", "double-gamma", "Balloon"), 
+	cond.names = NULL, param = NULL)
 }
 
 \arguments{

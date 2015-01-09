@@ -1,5 +1,8 @@
 useDynLib("neuRosim", .registration=TRUE)
 
+# import required package
+import(deSolve)
+
 # export functions defined in this package
 export(
        "stimfunction",

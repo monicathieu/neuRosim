@@ -7,7 +7,10 @@
 \description{Prepare a list defining the necessary parameters to specify the temporal structure of the activation data.}
 
 \usage{
-simprepTemporal(totaltime, regions = NULL, onsets, durations, TR, effectsize, accuracy=0.1, hrf = c("gamma", "double-gamma", "Balloon"), param = NULL)
+simprepTemporal(totaltime, regions = NULL, onsets, durations, 
+	TR, effectsize, accuracy=0.1, 
+	hrf = c("gamma", "double-gamma", "Balloon"), 
+	param = NULL)
 }
 
 \arguments{
@@ -35,7 +38,8 @@ d <- list(20, 10)
 effect <- list(7,10)
 total <- 80
 TR <- 2
-out <- simprepTemporal(total, onsets=os, durations=d, TR=TR, effectsize=effect, hrf="double-gamma")
+out <- simprepTemporal(total, onsets=os, durations=d, TR=TR, 
+	effectsize=effect, hrf="double-gamma")
 \dontshow{rm(os,d,total,TR,out)}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

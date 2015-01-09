@@ -66,7 +66,9 @@ function(dim, coord, radius=NULL, form=c("cube", "sphere", "manual"), fading=0){
 	      stop("Fading activation for manual coordinates is not implemented yet.")  
 	    } else {
 	      for(i in 1:nrow(coord)){
-		act[coord[i,1],coord[i,2]] <- 1
+		  i.1 <- coord[i, 1]
+                  i.2 <- coord[i, 2]
+                  act[i.1, i.2] <- 1
 	      }
 	    }
 	  }
@@ -118,7 +120,10 @@ function(dim, coord, radius=NULL, form=c("cube", "sphere", "manual"), fading=0){
 	      stop("Fading activation for manual coordinates is not implemented yet.")
 	    } else {
 	      for(i in 1:nrow(coord)){
-		act[coord[i,1],coord[i,2],coord[i,3]] <- 1
+                  i.1 <- coord[i, 1]
+                  i.2 <- coord[i, 2]
+                  i.3 <- coord[i, 3]
+                  act[i.1, i.2, i.3] <- 1 
 	      }
 	    }
 	  }

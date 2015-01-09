@@ -36,7 +36,8 @@ Sim.3D.GRF(d, voxdim, sigma, ksize, mask=NULL, type=c("field","max"))
      sigma <- diag(FWHM^2, 3) / (8 * log(2))
      voxdim <- c(2, 2, 4)
      msk <- array(1, dim = d)   
-     field <- Sim.3D.GRF(d = d, voxdim = voxdim, sigma = sigma, ksize = 9, mask = msk, type = "max")
+     field <- Sim.3D.GRF(d = d, voxdim = voxdim, sigma = sigma, 
+		ksize = 9, mask = msk, type = "max")
 \dontshow{rm(d,FWHM,sigma,voxdim,msk,field)}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

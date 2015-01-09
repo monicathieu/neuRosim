@@ -7,7 +7,9 @@
 \description{Generates an image with activated regions for specified dimensions. The regions are defined by their center and radius or can be entered manually.}
 
 \usage{
-  specifyregion(dim, coord, radius = NULL, form = c("cube", "sphere", "manual"), fading = 0)
+  specifyregion(dim, coord, radius = NULL, 
+	form = c("cube", "sphere", "manual"), 
+	fading = 0)
 }
 
 \arguments{

@@ -6,7 +6,8 @@
 
 \description{Prepare a list defining the necessary parameters to specify the spatial structure of the activation data.}
 
-\usage{simprepSpatial(regions, coord, radius = NULL, form = c("cube", "sphere", "manual"), fading = 0)}
+\usage{simprepSpatial(regions, coord, radius = NULL, 
+	form = c("cube", "sphere", "manual"), fading = 0)}
 
 \arguments{
   \item{regions}{Number of activated regions.}
