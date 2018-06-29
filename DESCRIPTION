@@ -15,3 +15,4 @@ Repository: CRAN
 Date/Publication: 2015-01-10 10:01:21
 Packaged: 2015-01-09 00:52:20 UTC; wel18s
 NeedsCompilation: yes
+RoxygenNote: 6.0.1
