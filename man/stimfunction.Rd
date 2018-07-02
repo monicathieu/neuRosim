@@ -4,7 +4,7 @@
 \alias{stimfunction}
 \title{Generate a stimulus boxcar function.}
 \usage{
-stimfunction(totaltime, onsets, durations, accuracy)
+stimfunction(totaltime, onsets, durations, cond.names = NULL, accuracy)
 }
 \arguments{
 \item{totaltime}{Total time of the design in seconds.}
@@ -13,11 +13,13 @@ stimfunction(totaltime, onsets, durations, accuracy)
 
 \item{durations}{Vector representing the durations of the stimulus in seconds.}
 
+\item{cond.names}{Optional names for the conditions.}
+
 \item{accuracy}{Microtime resolution in seconds.}
 }
 \value{
-A vector in microtime resolution specifying the stimulus boxcar
-function in 1-0 coding.
+A tibble in microtime resolution specifying the stimulus boxcar
+functions, with one column per condition, in 1-0 coding.
 }
 \description{
 Generates a stimulus boxcar vector for the specified time duration
@@ -32,8 +34,10 @@ total <- 100
 os <- c(1, 21, 41, 61, 81)
 d <- 10
 out <- stimfunction(total, os, d, 0.1)
-\dontshow{rm(total,os,d,out)}
+de\dontshow{rm(total,os,d,out)}
+
 }
 \seealso{
 \code{\link{specifydesign}}
 }
+\keyword{low-level}

@@ -70,7 +70,7 @@ systemnoise <- function(dim, nscan, type=c("gaussian","rician"), sigma, vee=1, t
 #' @param verbose Logical indicating if warnings should be printed.
 #' @return An array containing the noise with dimensions specified in \code{dim}.
 #' 
-#' @seealso {\code{\link{systemnoise}}, \code{\link{lowfreqdrift}}, \code{\link{physnoise}},
+#' @seealso \code{\link{systemnoise}}, \code{\link{lowfreqdrift}}, \code{\link{physnoise}},
 #' \code{\link{tasknoise}}, \code{\link{spatialnoise}}
 #' 
 #' @examples
