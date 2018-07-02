@@ -1,3 +1,5 @@
+#' @importFrom stats rnorm
+
 rrice <- function(n, vee, sigma){
 
     if ((!is.numeric(n)) || (length(n)>1)){ 

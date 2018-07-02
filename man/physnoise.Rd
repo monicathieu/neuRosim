@@ -38,7 +38,8 @@ variability over voxels. The result is a noise dataset with specified dimensions
 standard deviation.
 }
 \examples{
-d <- c(10,10,10)sigma <- 5
+d <- c(10,10,10)
+sigma <- 5
 nscan <- 100
 TR <- 2
 out <- physnoise(d, nscan, TR, sigma, verbose=FALSE)

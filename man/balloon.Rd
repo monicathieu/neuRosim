@@ -4,7 +4,7 @@
 \alias{balloon}
 \title{Balloon model}
 \usage{
-balloon(stim, totaltime, acc, par = NULL, verbose = TRUE)
+balloon(stim, totaltime, acc, par = list(), verbose = TRUE)
 }
 \arguments{
 \item{stim}{Vector representing the presence/absence (1-0 coding) of a stimulus/activation in seconds.}

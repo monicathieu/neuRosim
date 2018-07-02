@@ -3,17 +3,16 @@
 #' Generates a design matrix to be used as a model for the simulated activation.
 #' 
 #' @export
-#' @importFrom dplyr filter group_by %>%
+#' @importFrom dplyr filter full_join group_by %>%
 #' @importFrom tidyr nest unnest
-#' @importFrom purrr map map2 map_dbl
+#' @importFrom purrr map map2 map_dbl reduce
+#' @importFrom stats convolve
 #' @importFrom stringr str_sub
 #' 
 #' @param stim.function A tibble output by \code{\link{stimfunction}} specifying onsets.
 #' @param TR Repetition time in seconds.
 #' @param effectsize List or number representing the effectsize in each condition.
-#' @param accuracy Microtime resolution in seconds.
 #' @param conv Should the design matrix be convoluted, default is none.
-#' @param cond.names Optional names for the conditions.
 #' @param param Parameters of the haemodynamic response function.
 #' See \code{\link{gammaHRF}} and \code{\link{canonicalHRF}} for more details.
 #' @return A tibble with columns specifying the design.
@@ -106,6 +105,6 @@ specifydesign <- function(stim.function, TR, effectsize, conv=c("none", "gamma",
              # downsampling occurs here
              byTR = map(byMicro, ~filter(., round(microtime %% TR, 2) == 0)))
   
-  return(purrr::reduce(prep$byTR, full_join, by = "microtime", suffix = str_sub(prep$cond.name, start = 2L)))
+  return(reduce(prep$byTR, dplyr::full_join, by = "microtime", suffix = str_sub(prep$cond.name, start = 2L)))
 }
 

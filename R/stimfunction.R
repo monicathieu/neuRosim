@@ -4,7 +4,7 @@
 #' and microtime resolution based on the user-defined onsets and durations.
 #' 
 #' @export
-#' @importFrom dplyr if_else mutate tibble %>%
+#' @importFrom dplyr if_else mutate n tibble %>%
 #' @importFrom purrr map map2 reduce rerun
 #' 
 #' @param totaltime Total time of the design in seconds.

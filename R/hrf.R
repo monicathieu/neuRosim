@@ -86,6 +86,7 @@ gammaHRF <- function(x, FWHM = NULL, verbose = TRUE) {
 #' 
 #' @export
 #' @import deSolve
+#' @importFrom stats convolve
 #' 
 #' @param stim Vector representing the presence/absence (1-0 coding) of a stimulus/activation in seconds.
 #' @param totaltime Total duration of stimulus vector in seconds.
@@ -130,11 +131,11 @@ gammaHRF <- function(x, FWHM = NULL, verbose = TRUE) {
 #' 
 #' @keywords low-level activation
 
-balloon <- function(stim, totaltime, acc, par = NULL, verbose = TRUE){
+balloon <- function(stim, totaltime, acc, par = list(), verbose = TRUE){
     
     #require(deSolve, quietly=TRUE)
     
-    if(missing(par)){
+    if(length(par) == 0){
       if(verbose) warning("Default parameter values are used. See ?balloon.fnc for more details.")
     
       par <- list(kappa = 2,
@@ -177,12 +178,12 @@ balloon <- function(stim, totaltime, acc, par = NULL, verbose = TRUE){
     return(bold)
 }
 
-inhib <- function(t,y,p){
+inhib <- function(t,y,p,stim){
   yd1 <- (1/p[1])*(p[2]*stim[t] - (p[2]+1)*y[1])
   list(c(yd1))
 }
 
-de.balloon <- function(t,y,p){
+de.balloon <- function(t,y,p,E){
   dv <- (F[t]-y[1]^(1/p[4]))/(p[2]+p[3])
   dq <- 1/p[2]*(F[t]*E[t]/p[1] - y[2]/y[1]*(y[1]^(1/p[4]) + p[3]/(p[2] + p[3])*(F[t] - y[1]^(1/p[4]))))
   list(c(dv,dq))

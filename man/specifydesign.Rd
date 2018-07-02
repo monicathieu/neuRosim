@@ -18,10 +18,6 @@ specifydesign(stim.function, TR, effectsize, conv = c("none", "gamma",
 
 \item{param}{Parameters of the haemodynamic response function.
 See \code{\link{gammaHRF}} and \code{\link{canonicalHRF}} for more details.}
-
-\item{accuracy}{Microtime resolution in seconds.}
-
-\item{cond.names}{Optional names for the conditions.}
 }
 \value{
 A tibble with columns specifying the design.

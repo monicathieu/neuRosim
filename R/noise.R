@@ -61,6 +61,7 @@ systemnoise <- function(dim, nscan, type=c("gaussian","rician"), sigma, vee=1, t
 #' Generates an autoregressive noise dataset with specified dimensions and standard deviation.
 #' 
 #' @export
+#' @importFrom stats arima.sim
 #' 
 #' @param dim A vector specifying the dimensions of a 2D or 3D array.
 #' @param nscan The number of scans in the dataset.
@@ -190,6 +191,7 @@ spm_drift <- function(N, K) {
 #' The physiological noise is defined as noise caused by heart beat and respiratory rate.
 #' 
 #' @export
+#' @importFrom stats sd rnorm
 #' 
 #' @param dim A vector specifying the dimensions of the image.
 #' @param nscan The number of scans in the dataset.
@@ -210,7 +212,8 @@ spm_drift <- function(N, K) {
 #' \code{\link{tasknoise}}, \code{\link{spatialnoise}}
 #' 
 #' @examples
-#' d <- c(10,10,10)sigma <- 5
+#' d <- c(10,10,10)
+#' sigma <- 5
 #' nscan <- 100
 #' TR <- 2
 #' out <- physnoise(d, nscan, TR, sigma, verbose=FALSE)
@@ -255,11 +258,13 @@ physnoise <- function(dim, nscan, TR, sigma, freq.heart=1.17, freq.resp=0.2, tem
 #' only when a task is performed or activation is present.
 #' 
 #' @export
+#' @importFrom stats rnorm sd
 #' 
 #' @param act.image Array defining where and when activation is present.
 #' @param sigma Standard deviation of the noise.
 #' @param type Distribution of task-related noise. Default is gaussian.
 #' @param vee If \code{type=="rician"}, the non-centrality parameter of the distribution.
+#' @param verbose Logical indicating if warnings should be printed.
 #' @return An array containing the noise.
 #' 
 #' @details The function generates random Gaussian noise for those voxels in the dataset
@@ -271,16 +276,15 @@ physnoise <- function(dim, nscan, TR, sigma, freq.heart=1.17, freq.resp=0.2, tem
 #' 
 #' @examples
 #' d <- c(10,10,10)
-#' sigma <- 5
 #' nscan <- 100
 #' act <- array(rep(0, prod(d)*nscan), dim=c(d,nscan))
 #' act[2:4,2:4,2:4,c(20:30,40:50,60:70)] <- 1
-#' out <- tasknoise(act, sigma)
-#' \dontshow{rm(d,sigma,nscan,act,out)}
+#' out <- tasknoise(act, sigma = 5)
+#' \dontshow{rm(d,nscan,act,out)}
 #' 
 #' @keywords low-level noise
 
-tasknoise <- function(act.image, sigma, type=c("gaussian","rician"), vee=1){
+tasknoise <- function(act.image, sigma, type=c("gaussian","rician"), vee=1, verbose = T){
   
   if(missing(act.image)){
     stop("An activation array is required.")
