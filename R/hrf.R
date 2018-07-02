@@ -4,6 +4,7 @@
 #' time vector and parameters.
 #' 
 #' @export
+#' 
 #' @param x Time vector in seconds.
 #' @param param List of parameters of the haemodynamic response function.
 #' The list should contain the following:
