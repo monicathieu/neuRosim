@@ -27,7 +27,7 @@ Sim.3D.GRF <- function(d, voxdim, sigma, ksize, mask = NULL, type = c("field", "
             as.integer((type == "field")),
             mat = double(space),
             max = double(1),
-            PACKAGE = "neuRosim")
+            PACKAGE = "neuRosim2")
 
     if(type == "field") {
         mat <- array(a$mat, dim = d[4:1])
@@ -79,5 +79,3 @@ GaussSmoothKernel<-function(voxdim = c(1 , 1, 1), ksize = 5, sigma = diag(3, 3))
 
     return(a)
 }
-
-
