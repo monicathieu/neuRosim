@@ -1,4 +1,4 @@
-Package: neuRosim
+Package: neuRosim2
 Type: Package
 Title: Functions to Generate fMRI Data Including Activated Data, Noise
         Data and Resting State Data
