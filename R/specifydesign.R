@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @importFrom dplyr filter full_join group_by %>%
-#' @importFrom tidyr nest unnest
+#' @importFrom tidyr gather nest unnest
 #' @importFrom purrr map map2 map_dbl reduce
 #' @importFrom stats convolve
 #' @importFrom stringr str_sub
@@ -24,7 +24,8 @@
 #' d <- list(20, 10)
 #' total <- 80
 #' TR <- 2
-#' out <- specifydesign(os, d, total, TR, effectsize=list(2,5), conv="double-gamma")
+#' out <- specifydesign(stimfunction(total, os, d, acc = 0.1), TR,
+#'   effectsize=list(2,5), conv="double-gamma")
 #' \dontshow{rm(os,d,total,TR,out)}
 #' 
 #' @keywords low-level
@@ -61,11 +62,6 @@ specifydesign <- function(stim.function, TR, effectsize, conv=c("none", "gamma",
   
   if(missing(conv)){
     conv <- "none"
-  }
-  
-  # NO LONGER NEED: cond.names grandfathered in from stim.function object
-  if(is.null(cond.names)){
-    cond.names <- c(paste("C", 1:ncond, sep=""))
   }
   
   totaltime <- max(stim.function$microtime)

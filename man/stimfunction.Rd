@@ -33,7 +33,7 @@ onsets have the same duration.
 total <- 100
 os <- c(1, 21, 41, 61, 81)
 d <- 10
-out <- stimfunction(total, os, d, 0.1)
+out <- stimfunction(total, os, d, accuracy = 0.1)
 de\dontshow{rm(total,os,d,out)}
 
 }
